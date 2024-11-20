@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Pricing Selector</title>
+  
+
+
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <div class="pricing-container">
+    <h1>YAY! It's Too Many</h1>
+
+    <!-- Option 1 -->
+    <div class="pricing-option" onclick="selectOption(1)">
+      <input type="radio" id="option1" name="pricing">
+      <label for="option1">
+        <div class="details">
+          <h3>1 Unit</h3>
+          <span class="discount">10% Off</span>
+          <p class="price">$10.00 USD</p>
+          <p class="strike">$12.00 USD</p>
+        </div>
+      </label>
+      <div class="dropdowns">
+        <div>
+          <label for="size1">#1</label>
+          <select id="size1">
+            <option>Size</option>
+            <option>Small</option>
+            <option>Medium</option>
+            <option>Large</option>
+          </select>
+          <select id="color1">
+            <option>Color</option>
+            <option>Black</option>
+            <option>White</option>
+            <option>Red</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Option 2 -->
+    <div class="pricing-option" onclick="selectOption(2)">
+      <input type="radio" id="option2" name="pricing">
+      <label for="option2">
+        <div class="details">
+          <h3>2 Units</h3>
+          <span class="discount">20% Off</span>
+          <p class="price">$18.00 USD</p>
+          <p class="strike">$24.00 USD</p>
+        </div>
+        <span class="tag">MOST POPULAR</span>
+      </label>
+      <div class="dropdowns">
+        <div>
+          <label for="size2-1">#1</label>
+          <select id="size2-1">
+            <option>Size</option>
+            <option>Small</option>
+            <option>Medium</option>
+            <option>Large</option>
+          </select>
+          <select id="color2-1">
+            <option>Color</option>
+            <option>Black</option>
+            <option>White</option>
+            <option>Red</option>
+          </select>
+        </div>
+        <div>
+          <label for="size2-2">#2</label>
+          <select id="size2-2">
+            <option>Size</option>
+            <option>Small</option>
+            <option>Medium</option>
+            <option>Large</option>
+          </select>
+          <select id="color2-2">
+            <option>Color</option>
+            <option>Black</option>
+            <option>White</option>
+            <option>Red</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Option 3 -->
+    <div class="pricing-option" onclick="selectOption(3)">
+      <input type="radio" id="option3" name="pricing">
+      <label for="option3">
+        <div class="details">
+          <h3>3 Units</h3>
+          <span class="discount">30% Off</span>
+          <p class="price">$24.00 USD</p>
+          <p class="strike">$36.00 USD</p>
+        </div>
+        <p class="free-delivery">Free Delivery</p>
+      </label>
+      <div class="dropdowns">
+        <div>
+          <label for="size3-1">#1</label>
+          <select id="size3-1">
+            <option>Size</option>
+            <option>Small</option>
+            <option>Medium</option>
+            <option>Large</option>
+          </select>
+          <select id="color3-1">
+            <option>Color</option>
+            <option>Black</option>
+            <option>White</option>
+            <option>Red</option>
+          </select>
+        </div>
+        <div>
+          <label for="size3-2">#2</label>
+          <select id="size3-2">
+            <option>Size</option>
+            <option>Small</option>
+            <option>Medium</option>
+            <option>Large</option>
+          </select>
+          <select id="color3-2">
+            <option>Color</option>
+            <option>Black</option>
+            <option>White</option>
+            <option>Red</option>
+          </select>
+        </div>
+        <div>
+          <label for="size3-3">#3</label>
+          <select id="size3-3">
+            <option>Size</option>
+            <option>Small</option>
+            <option>Medium</option>
+            <option>Large</option>
+          </select>
+          <select id="color3-3">
+            <option>Color</option>
+            <option>Black</option>
+            <option>White</option>
+            <option>Red</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="total-section">
+      <p>Total: <span id="total">$18.00 USD</span></p>
+      <button class="add-to-cart">+ Add to Cart</button>
+    </div>
+
+    <footer>
+      <p>Powered by Pumpor</p>
+    </footer>
+  </div>
+
+  <script>
+    function selectOption(option) {
+      const options = document.querySelectorAll('.pricing-option');
+      options.forEach((el, idx) => {
+        el.classList.toggle('active', idx + 1 === option);
+      });
+
+      const totalElement = document.getElementById('total');
+      totalElement.textContent = option === 1
+        ? "$10.00 USD"
+        : option === 2
+        ? "$18.00 USD"
+        : "$24.00 USD";
+    }
+  </script>
+</body>
+</html>
